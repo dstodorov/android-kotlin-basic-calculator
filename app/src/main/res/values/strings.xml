@@ -18,4 +18,8 @@
     <string name="divide">/</string>
     <string name="equals">=</string>
     <string name="result">%s</string>
+    <string name="clear">C</string>
+    <string name="plus_minus">+/-</string>
+    <string name="percent">%</string>
+    <string name="delete">←</string>
 </resources>
