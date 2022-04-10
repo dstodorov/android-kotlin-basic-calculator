@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.buttonEquals.setOnClickListener(this)
         binding.buttonClear.setOnClickListener(this)
         binding.buttonBackspace.setOnClickListener(this)
+        binding.buttonChangeSign.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -63,7 +64,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button_equals -> calculateResult()
             R.id.button_clear -> clear()
             R.id.button_backspace -> backspace()
+            R.id.button_change_sign -> changeNumberSign()
         }
+    }
+
+    private fun changeNumberSign() {
+        val number = StringBuilder(binding.result.text)
+
+        if (number.contains("-")) {
+            number.deleteCharAt(0)
+        } else {
+            number.insert(0, "-")
+        }
+        binding.result.text = number
     }
 
     private fun calculateResult() {
@@ -96,6 +109,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun addDigit(digit: Int) {
         val result = StringBuilder(binding.result.text)
+        if (binding.result.text.toString().toDouble() == 0.0) result.clear()
         result.append(digit.toString())
         if (reset) {
             reset(digit.toString())
@@ -112,7 +126,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun setOperation(newOperator : String) {
+    private fun setOperation(newOperator: String) {
         binding.operator.text = newOperator
         operator = newOperator
         firstNumber = binding.result.text.toString().toDouble()
@@ -120,7 +134,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun backspace() {
-        if (binding.result.text.isNotEmpty()) {
+        if (binding.result.text.length == 1) binding.result.text = "0"
+        else if (binding.result.text.toString().toDouble() != 0.0 && binding.result.text.isNotEmpty()) {
             val number = StringBuilder(binding.result.text)
             number.deleteCharAt(number.length - 1)
             binding.result.text = number
