@@ -3,21 +3,25 @@
     <style name="NumberButtonStyle">
         <item name="android:backgroundTint">#E8E8E8</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">30dp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:insetTop">8dp</item>
         <item name="android:insetBottom">8dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
     </style>
     <style name="OperationButtonStyle">
         <item name="android:backgroundTint">#FF9800</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">30dp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:insetTop">8dp</item>
         <item name="android:insetBottom">8dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.MyApp.Button.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

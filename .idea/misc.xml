@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Dev/Android/Learn/exercises/android-kotlin-basic-calculator/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Dev/Android/Learn/exercises/android-kotlin-basic-calculator/app/src/main/res/drawable-v24/button_layout.xml" value="0.2985" />
+        <entry key="..\:/Dev/Android/Learn/exercises/android-kotlin-basic-calculator/app/src/main/res/drawable-v24/operation_button_layout.xml" value="0.2985" />
+        <entry key="..\:/Dev/Android/Learn/exercises/android-kotlin-basic-calculator/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
   </component>
