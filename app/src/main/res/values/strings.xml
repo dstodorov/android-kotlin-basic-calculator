@@ -23,4 +23,6 @@
     <string name="percent">%</string>
     <string name="delete">←</string>
     <string name="calculation">%s %s %s</string>
+    <string name="error">Error</string>
+    <string name="division_by_zero">Division by zero</string>
 </resources>

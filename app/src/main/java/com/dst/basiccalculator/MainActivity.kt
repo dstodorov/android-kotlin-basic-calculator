@@ -1,6 +1,7 @@
 package com.dst.basiccalculator
 
 import android.os.*
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import com.dst.basiccalculator.databinding.ActivityMainBinding
@@ -80,12 +81,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun calculateResult() {
+        if (binding.result.text.equals("Error") || binding.result.text.equals("Division by zero")) clear()
         var result = 0.0
         secondNumber = binding.result.text.toString().toDouble()
         binding.operator.text = ""
         when (operator) {
             "*" -> result = firstNumber * secondNumber
-            "/" -> result = firstNumber / secondNumber
+            "/" -> {
+                if (firstNumber == 0.0 && secondNumber == 0.0){
+                    binding.result.text = getString(R.string.error)
+                    return
+                }
+                if (secondNumber == 0.0) {
+                    binding.result.text = getString(R.string.division_by_zero)
+                    return
+                }
+                result = firstNumber / secondNumber
+            }
             "+" -> result = firstNumber + secondNumber
             "-" -> result = firstNumber - secondNumber
         }
@@ -108,8 +120,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun addDigit(digit: Int) {
+        if (binding.result.text.equals("Error") || binding.result.text.equals("Division by zero")) clear()
         val result = StringBuilder(binding.result.text)
-        if (binding.result.text.toString().toDouble() == 0.0) result.clear()
+        if (binding.result.text.toString().toDouble() == 0.0 && !binding.result.text.contains(".")) result.clear()
         result.append(digit.toString())
         if (reset) {
             reset(digit.toString())
